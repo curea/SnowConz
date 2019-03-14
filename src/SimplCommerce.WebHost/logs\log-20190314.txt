@@ -1,0 +1,34 @@
+2019-03-14 04:27:20.287 -06:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ([x].LatestUpdatedOn < __durationToCancel_0)"' could not be translated and will be evaluated locally.
+2019-03-14 04:27:21.403 -06:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-03-14 04:49:21.139 -06:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"x\".\"Id\", \"x\".\"BillingAddressId\", \"x\".\"CouponCode\", \"x\".\"CouponRuleName\", \"x\".\"CreatedById\", \"x\".\"CreatedOn\", \"x\".\"CustomerId\", \"x\".\"DiscountAmount\", \"x\".\"IsMasterOrder\", \"x\".\"LatestUpdatedById\", \"x\".\"LatestUpdatedOn\", \"x\".\"OrderNote\", \"x\".\"OrderStatus\", \"x\".\"OrderTotal\", \"x\".\"ParentId\", \"x\".\"PaymentFeeAmount\", \"x\".\"PaymentMethod\", \"x\".\"ShippingAddressId\", \"x\".\"ShippingFeeAmount\", \"x\".\"ShippingMethod\", \"x\".\"SubTotal\", \"x\".\"SubTotalWithDiscount\", \"x\".\"TaxAmount\", \"x\".\"VendorId\"
+FROM \"Orders_Order\" AS \"x\"
+WHERE (\"x\".\"OrderStatus\" = 20) OR (\"x\".\"OrderStatus\" = 35)"
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Orders_Order'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-03-14 04:49:21.154 -06:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Orders_Order'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Orders_Order'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
